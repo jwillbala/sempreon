@@ -9,7 +9,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 /* General Setup
 /*-----------------------------------------------------------------------------------*/
 html{ height:100%;}
-body{font-family:Arial, Helvetica, sans-serif;padding:0;font-size:12px;margin:0 auto;height: 100%;position: relative;line-height:19px;}
+body{font-family:Arial, Helvetica, sans-serif;padding:0;font-size:14px !important;margin:0 auto;height: 100%;position: relative;line-height:19px;}
 a, span.tag{ text-decoration:none;}
 a.view_details{padding:0 0 0 15px;}
 .swiper-container{ width:800px;height: 100%;}
@@ -40,24 +40,24 @@ h2.post_title{ font-size:26px;padding:0 0 20px 0; line-height:28px;}
 .swiper-active-switch {background: #fff;}
 /*----------header and footer buttons---------------*/
 .gohome{ width:40px; height:40px; float:left; margin:0 0 0 10px;}
-.gohome a{ color:#FFFFFF; text-decoration:none; font-weight:bold; font-size:12px; display:block; text-align:center;}
+.gohome a{ color:#FFFFFF; text-decoration:none; font-weight:bold; font-size:14px; display:block; text-align:center;}
 .gohome a img{display:inline-block;max-height:25px; margin:5px 0 0 0;}
 
 .gohomemenu{ width:40px; height:40px; float:left; margin:0 0 0 10px;}
-.gohomemenu a{ color:#FFFFFF; text-decoration:none; font-weight:bold; font-size:12px; display:block; text-align:center;}
+.gohomemenu a{ color:#FFFFFF; text-decoration:none; font-weight:bold; font-size:14px; display:block; text-align:center;}
 .gohomemenu a img{display:inline-block;max-height:25px; margin:7px 0 0 0;}
 
 .gomenu{ width:40px; height:40px;float:right;margin:0 10px 0 0;}
-.gomenu a{ color:#FFFFFF; text-decoration:none; font-weight:bold; font-size:12px; display:block; text-align:center;}
+.gomenu a{ color:#FFFFFF; text-decoration:none; font-weight:bold; font-size:14px; display:block; text-align:center;}
 .gomenu a img{display:inline-block;max-height:25px; margin:6px 0 0 0;}
 
 .scrolltop{ width:40px; height:40px;margin:auto; display:block;}
-.scrolltop a{ color:#FFFFFF; text-decoration:none; font-weight:bold; font-size:12px; display:block; text-align:center;}
+.scrolltop a{ color:#FFFFFF; text-decoration:none; font-weight:bold; font-size:14px; display:block; text-align:center;}
 .scrolltop a img{display:inline-block;max-height:28px; margin:5px 0 0 0;}
 /*----------page buttons---------------*/
 a.button_12{ width:48%; margin:0 1% 10px 1%;padding:10px 0; float:left; display:block;font-size:18px; text-decoration:none; text-align:center;}
 a.button_11{ width:98%; margin:0 0 10px 1%;padding:10px 0; float:left; display:block;font-size:18px; text-decoration:none; text-align:center;}
-.green{ background-color:#85af5d;}
+.green{ background-color:#33cc00;}
 .blue{ background-color:#29aae3;}
 .darkblue{ background-color:#035792;}
 .red{ background-color:#c53238;}
@@ -68,6 +68,8 @@ a.button_11{ width:98%; margin:0 0 10px 1%;padding:10px 0; float:left; display:b
 .gray{ background-color:#6e6e6e;}
 .yellow{ background-color:#ffb606;}
 .bluegreen{ background-color:#06a78b;}
+.white {background:#eee;color:#333 !important}
+.white span {color:#333 !important}
 
 .green_borderbottom{border-bottom:3px #759a51 solid;}
 .blue_borderbottom{border-bottom:3px #198bbd solid;}
