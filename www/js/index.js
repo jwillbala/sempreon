@@ -34,18 +34,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function () {
         profileCreate();
-
-        $.ajax({
-            type: "POST",
-            url: "http://www.sempreon.mobi/hotspot/macassoc2.php",
-            success: function (data) {
-                alert(1);
-            },
-            error: function (e) {
-                alert(e);
-            }
-        });
-
+        
         window.MacAddress.getMacAddress(
                 function (macAddress) {
                     //alert(macAddress);
