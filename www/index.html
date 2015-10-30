@@ -847,7 +847,23 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
-            alert(localStorage.mac);
+
+            $.ajax({
+                url: "http://www.sempreon.mobi/hotspot/macassoc2.php",
+                dataType: 'jsonp',
+                jsonp: 'callback',
+                timeout: 5000
+
+            }).always(function () {
+                alert("always");
+
+            }).fail(function () {
+                alert("fail");
+
+            }).success(function (res, status) {
+                alert("success");
+
+            });
         </script>
     </body>
 </html>
