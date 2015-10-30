@@ -34,30 +34,25 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function () {
         profileCreate();
-        
+
         $.ajax({
-                url: "http://www.sempreon.mobi/hotspot/macassoc2.php",
-                dataType: 'jsonp',
-                jsonp: 'callback',
-                timeout: 5000
-
-            }).always(function () {
-                alert("always");
-
-            }).fail(function () {
-                alert("fail");
-
-            }).success(function (res, status) {
-                alert("success");
-
-            });
+            type: "POST",
+            url: "http://www.sempreon.mobi/hotspot/macassoc2.php",
+            dataType: "json",
+            success: function (data) {
+                alert(1);
+            },
+            error: function (e) {
+                alert(2);
+            }
+        });
 
         window.MacAddress.getMacAddress(
                 function (macAddress) {
                     //alert(macAddress);
                     localStorage.mac = macAddress;
                 }, function (fail) {
-            alert(fail+" error");
+            alert(fail + " error");
         }
         );
 

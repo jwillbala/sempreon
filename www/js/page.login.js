@@ -33,10 +33,10 @@ $('#LoginGo').click(function () {
         alert("always");
 
     }).fail(function () {
-
+        alert("Não foi possível se conectar ao servidor.");
         $('#LoginLoading').hide();
         $('#LoginForm').show();
-        alert("Não foi possível se conectar ao servidor.");
+        
 
     }).success(function (res, status) {
         alert("success");
