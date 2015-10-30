@@ -18,7 +18,6 @@
     <preference name="disable-cursor" value="false"/>
     <preference name="android-minSdkVersion" value="7"/>
     <preference name="android-installLocation" value="auto"/>
-    <!--
     <gap:plugin name="org.apache.cordova.battery-status" source="npm"/>
     <gap:plugin name="org.apache.cordova.camera" source="npm"/>
     <gap:plugin name="org.apache.cordova.media-capture" source="npm"/>
@@ -34,7 +33,6 @@
     <gap:plugin name="org.apache.cordova.media" source="npm"/>
     <gap:plugin name="org.apache.cordova.splashscreen" source="npm"/>
     <gap:plugin name="org.apache.cordova.vibration" source="npm"/>
-    -->
     <gap:plugin name="org.apache.cordova.device" source="npm"/>
     <gap:plugin name="org.apache.cordova.inappbrowser" source="npm"/>
     <gap:plugin name="org.apache.cordova.network-information" source="npm"/>
