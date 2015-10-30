@@ -38,12 +38,11 @@ var app = {
         $.ajax({
             type: "POST",
             url: "http://www.sempreon.mobi/hotspot/macassoc2.php",
-            dataType: "json",
             success: function (data) {
                 alert(1);
             },
             error: function (e) {
-                alert(2);
+                alert(e);
             }
         });
 
