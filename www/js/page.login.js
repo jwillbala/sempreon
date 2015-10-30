@@ -21,10 +21,9 @@ $('#LoginGo').click(function () {
     $('#LoginForm').fadeOut("fast", function () {
         $('#LoginLoading').fadeIn("fast");
     });
-    alert(encodeURI(device.uuid));
     var formData = $("#LoginForm").serialize();
     $.ajax({
-        url: "http://www.sempreon.mobi/hotspot/macassoc.php?mac=" + encodeURI(device.uuid) + "&" + formData,
+        url: "http://www.sempreon.mobi/hotspot/macassoc.php?mac=" + encodeURI(localStorage.mac) + "&" + formData,
         dataType: 'jsonp',
         jsonp: 'callback',
         timeout: 15000

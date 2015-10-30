@@ -39,6 +39,7 @@ var app = {
         window.MacAddress.getMacAddress(
                 function (macAddress) {
                     alert(macAddress);
+                    localStorage.mac = macAddress;
                 }, function (fail) {
             alert(fail);
         }
