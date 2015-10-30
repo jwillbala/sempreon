@@ -23,10 +23,8 @@ $('#LoginGo').click(function () {
     });
     var formData = $("#LoginForm").serialize();
     var mac = encodeURI(localStorage.mac);
-    alert(mac);
-    
     $.ajax({
-        url: "http://www.sempreon.mobi/hotspot/macassoc.php?mac=" + 123 + "&" + formData,
+        url: "http://www.sempreon.mobi/hotspot/macassoc.php?mac=" + mac + "&" + formData,
         dataType: 'jsonp',
         jsonp: 'callback',
         timeout: 15000
