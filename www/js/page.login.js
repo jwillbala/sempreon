@@ -23,6 +23,7 @@ $('#LoginGo').click(function () {
     });
     var formData = $("#LoginForm").serialize();
     var mac = encodeURI(localStorage.mac);
+    alert(1);
     $.ajax({
         url: "http://www.sempreon.mobi/hotspot/macassoc.php?mac=" + mac + "&" + formData,
         dataType: 'jsonp',
@@ -59,12 +60,25 @@ $('#LoginGo').click(function () {
             localStorage.cliDtNasc = res.cliDtNasc;
             localStorage.cliDtIns = res.cliDtIns;
             localStorage.cliLoc = res.cliLoc;
-            profileCreate();
+            //profileCreate();
+
+            $('#cliNome').html(localStorage.cliNome);
+            $('#cliEmail').html(localStorage.cliEmail);
+            $('#cliCel').html(localStorage.cliCel);
+            $('#cliCPF').html(localStorage.cliCPF);
+            $('#cliSexo').html(localStorage.cliSexo);
+            $('#cliDtNasc').html(localStorage.cliDtNasc);
+            $('#cliDtIns').html(localStorage.cliDtIns);
+            $('#cliLoc').html(localStorage.cliLoc);
+            $("#LoginDO").hide();
+            $("#LoginOK").fadeIn("fast");
+
             $("#LoginDO").hide();
             $("#LoginOK").fadeIn("fast");
 
         }
 
     });
+    alert(2);
 
 });
