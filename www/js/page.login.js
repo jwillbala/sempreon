@@ -23,6 +23,20 @@ $('#LoginGo').click(function () {
     });
     var formData = $("#LoginForm").serialize();
     var mac = encodeURI(localStorage.mac);
+
+    var req = new XMLHttpRequest();
+    req.open("POST", "http://www.sempreon.mobi/hotspot/macassoc.php?mac=" + mac + "&" + formData, true);
+    req.onreadystatechange = function () {
+        if (req.readyState == 4) {
+            if (req.status == 200) {
+                var data = req.responseText;
+                alert(data);
+            }
+        }
+    };
+    req.send(null);
+    return;
+
     $.ajax({
         url: "http://www.sempreon.mobi/hotspot/macassoc.php?mac=" + mac + "&" + formData,
         dataType: 'jsonp',
@@ -36,7 +50,7 @@ $('#LoginGo').click(function () {
         alert("Não foi possível se conectar ao servidor.");
         $('#LoginLoading').hide();
         $('#LoginForm').show();
-        
+
 
     }).success(function (res, status) {
         alert("success");
