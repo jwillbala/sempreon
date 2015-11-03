@@ -47,6 +47,8 @@
     <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
     <gap:plugin name="org.apache.cordova.file-transfer" version="0.4.6" />
     <gap:plugin name="com.badrit.macaddress" version="0.1.0" />
+    <gap:plugin name="com.indigoway.cordova.whitelist.whitelistplugin" version="1.1.1" />
+    
     <icon src="icon.png"/>
     <icon src="www/res/icon/android/icon-36-ldpi.png" gap:platform="android" gap:qualifier="ldpi"/>
     <icon src="www/res/icon/android/icon-48-mdpi.png" gap:platform="android" gap:qualifier="mdpi"/>
@@ -73,7 +75,7 @@
     <gap:splash src="www/res/screen/ios/screen-ipad-landscape.png" gap:platform="ios" width="1024" height="768"/>
     <gap:splash src="www/res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone"/>
     
-    <gap:plugin name="com.indigoway.cordova.whitelist.whitelistplugin" version="1.1.1" />
+    <plugin name="cordova-plugin-whitelist" version="1" />
     <access origin="*" />
     <allow-navigation href="*" />
     <allow-intent href="*" />
