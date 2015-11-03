@@ -18,9 +18,10 @@ function profileCreate() {
 
 
 $('#LoginGo').click(function () {
-    $('#LoginForm').fadeOut("fast", function () {
+    /*$('#LoginForm').fadeOut("fast", function () {
         $('#LoginLoading').fadeIn("fast");
     });
+    */
     var formData = $("#LoginForm").serialize();
     var mac = encodeURI(localStorage.mac);
 
