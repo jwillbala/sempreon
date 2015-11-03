@@ -48,15 +48,14 @@ var app = {
         req.send(null);
         alert(1);
         //profileCreate();
-        /*alert(localStorage.mac);
-         window.MacAddress.getMacAddress(
-         function (macAddress) {
-         //alert(macAddress);
-         localStorage.mac = macAddress;
-         }, function (fail) {
-         alert(fail + " error");
-         });
-         */
+        window.MacAddress.getMacAddress(
+                function (macAddress) {
+                    alert(macAddress);
+                    localStorage.mac = macAddress;
+                }, function (fail) {
+            alert(fail + " error");
+        });
+        alert(2);
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event

@@ -15,19 +15,17 @@ function profileCreate() {
     }
 }
 
-
-
 $('#LoginGo').click(function () {
-    /*$('#LoginForm').fadeOut("fast", function () {
-        $('#LoginLoading').fadeIn("fast");
-    });
-    */
+    $('#LoginForm').hide();
+    $('#LoginLoading').show();
+
     var formData = $("#LoginForm").serialize();
     var mac = encodeURI(localStorage.mac);
 
     var req = new XMLHttpRequest();
     req.open("POST", "http://www.sempreon.mobi/hotspot/macassoc.php?mac=" + mac + "&" + formData, true);
     req.onreadystatechange = function () {
+        $('#LoginLoading').hide();
         if (req.readyState == 4) {
             if (req.status == 200) {
                 var data = req.responseText;
