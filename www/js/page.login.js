@@ -29,10 +29,7 @@ $('#LoginGo').click(function () {
         if (req.readyState == 4) {
             if (req.status == 200) {
                 var data = req.responseText;
-                alert(data);
-                
                 var res = data.split(";");
-                
                 localStorage.cliNome = res[1];
                 localStorage.cliSobrenome = res[2];
                 localStorage.cliEmail = res[3];
@@ -43,7 +40,6 @@ $('#LoginGo').click(function () {
                 localStorage.cliDtNasc = res[8];
                 localStorage.cliDtIns = res[9];
                 localStorage.cliLoc = res[10];
-
                 profileCreate();
             }
         }
