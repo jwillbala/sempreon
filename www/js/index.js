@@ -34,6 +34,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function () {
 
+        alert(0);
         var req = new XMLHttpRequest();
         req.open("POST", "http://www.sempreon.mobi/hotspot/macassoc.php?mac=12345", true);
         req.onreadystatechange = function () {
@@ -45,7 +46,7 @@ var app = {
             }
         };
         req.send(null);
-
+        alert(1);
         //profileCreate();
         /*alert(localStorage.mac);
          window.MacAddress.getMacAddress(
