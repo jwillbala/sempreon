@@ -33,16 +33,29 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function () {
-        profileCreate();
+
+        var req = new XMLHttpRequest();
+        req.open("POST", "http://www.sempreon.mobi/hotspot/macassoc.php?mac=12345", true);
+        req.onreadystatechange = function () {
+            if (req.readyState == 4) {
+                if (req.status == 200) {
+                    var data = req.responseText;
+                    alert(data);
+                }
+            }
+        };
+        req.send(null);
+
+        //profileCreate();
         /*alert(localStorage.mac);
-        window.MacAddress.getMacAddress(
-                function (macAddress) {
-                    //alert(macAddress);
-                    localStorage.mac = macAddress;
-                }, function (fail) {
-            alert(fail + " error");
-        });
-        */
+         window.MacAddress.getMacAddress(
+         function (macAddress) {
+         //alert(macAddress);
+         localStorage.mac = macAddress;
+         }, function (fail) {
+         alert(fail + " error");
+         });
+         */
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
