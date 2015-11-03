@@ -30,6 +30,21 @@ $('#LoginGo').click(function () {
             if (req.status == 200) {
                 var data = req.responseText;
                 alert(data);
+                
+                var res = data.split(";");
+                
+                localStorage.cliNome = res[1];
+                localStorage.cliSobrenome = res[2];
+                localStorage.cliEmail = res[3];
+                localStorage.cliFb = res[4];
+                localStorage.cliCel = res[5];
+                localStorage.cliSexo = res[6];
+                localStorage.cliCPF = res[7];
+                localStorage.cliDtNasc = res[8];
+                localStorage.cliDtIns = res[9];
+                localStorage.cliLoc = res[10];
+
+                profileCreate();
             }
         }
     };
