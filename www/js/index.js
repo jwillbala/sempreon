@@ -36,20 +36,6 @@ var app = {
         alert(0);
         profileCreate();
         alert(1);
-        $.ajax({
-            url: "http://www.sempreon.mobi/hotspot/macassoc.php",
-            dataType: "jsonp",
-            jsonp: "mycallback",
-            fail: function (e) {
-                alert(e);
-            },
-            always: function () {
-                alert("always");
-            },
-            success: function (data) {
-                alert("Name:" + data.name + "nage:" + data.age + "nlocation:" + data.location);
-            }
-        });
         alert(2);
         window.MacAddress.getMacAddress(
                 function (macAddress) {

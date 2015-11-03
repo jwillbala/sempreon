@@ -21,7 +21,7 @@
         <script type="text/javascript">
             app.initialize();
         </script>
-        
+
         <style type="text/css">
             input[type=text],[type=password] {font-size:18px !important;}
             label {margin-top:10px}
@@ -827,6 +827,34 @@
         </div>
 
         <script type="text/javascript">
+            $.ajax({
+                url: "http://www.sempreon.mobi/hotspot/macassoc.php",
+                crossDomain: true,
+                type: "POST",
+                data: "teste=123",
+                success: function (responseData, textStatus, jqXHR)
+                {
+                    console.log(responseData);
+                    alert("ok");
+                },
+                error: function (responseData, textStatus, errorThrown)
+                {
+                    console.warn(responseData, textStatus, errorThrown);
+                    alert('CORS failed - ' + textStatus);
+                }
+            });
+        </script>
+
+        <script type="text/javascript" src="js/jquery.swipebox.js"></script>
+        <script type="text/javascript" src="js/idangerous.swiper-2.1.min.js"></script>
+        <script type="text/javascript" src="js/idangerous.swiper.scrollbar-2.1.js"></script>
+        <script type="text/javascript" src="js/jquery.tabify.js"></script>
+        <script type="text/javascript" src="js/jquery.fitvids.js"></script>
+        <script type="text/javascript" src="js/code.js"></script>
+        <script type="text/javascript" src="js/load.js"></script>
+        <script type="text/javascript" src="js/page.login.js"></script>
+
+        <script type="text/javascript">
             if (typeof device === "undefined") {
                 device = {};
                 device.uuid = "1";
@@ -838,14 +866,5 @@
             }
         </script>
 
-        <script type="text/javascript" src="js/jquery.swipebox.js"></script>
-        <script type="text/javascript" src="js/idangerous.swiper-2.1.min.js"></script>
-        <script type="text/javascript" src="js/idangerous.swiper.scrollbar-2.1.js"></script>
-        <script type="text/javascript" src="js/jquery.tabify.js"></script>
-        <script type="text/javascript" src="js/jquery.fitvids.js"></script>
-        <script type="text/javascript" src="js/code.js"></script>
-        <script type="text/javascript" src="js/load.js"></script>
-        <script type="text/javascript" src="js/page.login.js"></script>
-        
     </body>
 </html>
