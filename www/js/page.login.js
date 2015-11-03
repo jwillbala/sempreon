@@ -14,6 +14,7 @@ function profileCreate() {
         $("#LoginOK").show();
     }
     else {
+        $('#LoginForm').show();
         $("#LoginOK").hide();
         $("#LoginDO").show();
     }
@@ -24,7 +25,7 @@ $('#logout').click(function () {
         var mac = encodeURI(localStorage.mac);
         
         var req = new XMLHttpRequest();
-        req.open("POST", "http://www.sempreon.mobi/hotspot/macassoc.php?mac=" + mac + "&action=unassoc", true);
+        req.open("POST", "http://www.sempreon.mobi/hotspot/tunnel/macassoc.php?mac=" + mac + "&action=unassoc", true);
         req.onreadystatechange = function () {
             if (req.readyState == 4) {
                 if (req.status == 200) {
@@ -45,7 +46,7 @@ $('#LoginGo').click(function () {
     var mac = encodeURI(localStorage.mac);
 
     var req = new XMLHttpRequest();
-    req.open("POST", "http://www.sempreon.mobi/hotspot/macassoc.php?mac=" + mac + "&" + formData, true);
+    req.open("POST", "http://www.sempreon.mobi/hotspot/tunnel/macassoc.php?mac=" + mac + "&" + formData, true);
     req.onreadystatechange = function () {
         $('#LoginLoading').hide();
         if (req.readyState == 4) {
