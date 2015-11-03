@@ -827,23 +827,29 @@
         </div>
 
         <script type="text/javascript">
-            $.ajax({
-                url: "http://www.sempreon.mobi/hotspot/macassoc.php",
-                crossDomain: true,
-                type: "POST",
-                data: "teste=123",
-                success: function (responseData, textStatus, jqXHR)
-                {
-                    console.log(responseData);
-                    alert("ok");
-                },
-                error: function (responseData, textStatus, errorThrown)
-                {
-                    console.warn(responseData, textStatus, errorThrown);
-                    alert('CORS failed - ' + textStatus);
-                }
+            $(document).bind("mobileinit", function () {
+                $.support.cors = true;
+                $.mobile.allowCrossDomainPages = true;
+
+                $.ajax({
+                    url: "http://www.sempreon.mobi/hotspot/macassoc.php",
+                    crossDomain: true,
+                    type: "POST",
+                    data: "teste=123",
+                    success: function (responseData, textStatus, jqXHR)
+                    {
+                        console.log(responseData);
+                        alert("ok");
+                    },
+                    error: function (responseData, textStatus, errorThrown)
+                    {
+                        console.warn(responseData, textStatus, errorThrown);
+                        alert('CORS failed - ' + textStatus);
+                    }
+                });
             });
         </script>
+
 
         <script type="text/javascript" src="js/jquery.swipebox.js"></script>
         <script type="text/javascript" src="js/idangerous.swiper-2.1.min.js"></script>
