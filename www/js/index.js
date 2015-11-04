@@ -36,7 +36,7 @@ var app = {
         profileCreate();
         window.MacAddress.getMacAddress(
                 function (macAddress) {
-                    alert(macAddress);
+                    //alert(macAddress);
                     localStorage.mac = macAddress;
                 }, function (fail) {
             alert(fail + " error");
