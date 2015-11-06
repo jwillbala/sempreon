@@ -1,29 +1,11 @@
-
-function profileCreate() {
-
-    if (localStorage.cliNome) {
-        $('#cliNome').html(localStorage.cliNome);
-        $('#cliEmail').html(localStorage.cliEmail);
-        $('#cliCel').html(localStorage.cliCel);
-        $('#cliCPF').html(localStorage.cliCPF);
-        $('#cliSexo').html(localStorage.cliSexo);
-        $('#cliDtNasc').html(localStorage.cliDtNasc);
-        $('#cliDtIns').html(localStorage.cliDtIns);
-        $('#cliLoc').html(localStorage.cliLoc);
-        $("#LoginDO").hide();
-        $("#LoginOK").show();
-    }
-    else {
-        $('#LoginForm').show();
-        $("#LoginOK").hide();
-        $("#LoginDO").show();
-    }
-}
+//============================
+// DESASSOCIAR
+//============================
 $('#logout').click(function () {
     if (confirm('Tem certeza que deseja desassociar este dispositivo?')) {
-        
+
         var mac = encodeURI(localStorage.mac);
-        
+
         var req = new XMLHttpRequest();
         req.open("POST", "http://www.sempreon.mobi/hotspot/tunnel/macassoc.php?mac=" + mac + "&action=unassoc", true);
         req.onreadystatechange = function () {
@@ -38,6 +20,9 @@ $('#logout').click(function () {
         req.send(null);
     }
 });
+//============================
+// FAZER LOGIN
+//============================
 $('#LoginGo').click(function () {
     $('#LoginForm').hide();
     $('#LoginLoading').show();
@@ -128,4 +113,87 @@ $('#LoginGo').click(function () {
          */
     });
 
+});
+//============================
+// DESCONECTAR USUARIO
+//============================
+$('.desconectar').click(function () {
+    if (confirm('Deseja desconectar-se do SempreOn?')) {
+        var req = new XMLHttpRequest();
+        req.open("POST", "http://www.sempreon.mobi/hotspot/tunnel/disconnect.php?user=" + localStorage.cliEmail, true);
+        req.onreadystatechange = function () {
+            if (req.readyState == 4) {
+                if (req.status == 200) {
+                    var data = req.responseText;
+                    if (data == "success") {
+                        alert("Você foi desconectado.");
+                        ping();
+                    }
+                    else {
+                        alert("Ocorreu um erro em sua requisição. Tente novamente mais tarde.");
+                    }
+                }
+            }
+        };
+        req.send(null);
+        return;
+    }
+});
+//============================
+// TELA "ALTERAR SENHA"
+//============================
+$('#alterar').click(function () {
+    $('#senha_login').val(localStorage.cliEmail);
+    $('#LoginOK').hide();
+    $('#passDiv').show();
+});
+$('#passBack').click(function () {
+    //$(this).closest('form').find("input[type=text], input[type=password], textarea").val("");
+    $('#passDiv').hide();
+    $('#LoginOK').show();
+});
+$('#passGo').click(function () {
+
+    var p0 = $('#senha_atual').val();
+    var p1 = $('#senha_nova1').val();
+    var p2 = $('#senha_nova2').val();
+
+    if (p0 == "") {
+        alert("Digite a sua senha atual");
+    }
+    if (p1 == "" || p2 == "") {
+        alert("Digite uma nova senha");
+    }
+    if (p1 != p2) {
+        alert("Os campos de nova senha não coincidem");
+    }
+    $("#passForm").hide();
+    $('#passLoad').show();
+
+    var formData = $("#passForm").serialize();
+
+    var req = new XMLHttpRequest();
+    req.open("POST", "http://www.sempreon.mobi/hotspot/tunnel/newpass.php?" + formData, true);
+    req.onreadystatechange = function () {
+        $('#passLoad').hide();
+        if (req.readyState == 4) {
+            if (req.status == 200) {
+                var data = req.responseText;
+                var res = data.split(";");
+                alert(res[1]);
+                if (res[0] == "error") {
+                    $('#senha_atual').val("");
+                    $('#senha_nova1').val("");
+                    $('#senha_nova2').val("");
+                }
+                else {
+                    $("#passDiv").hide();
+                    $("#passForm").show();
+                    $('#LoginOK').show();
+                }
+            }
+        }
+    };
+    req.send(null);
+    return;
 });

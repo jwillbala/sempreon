@@ -33,14 +33,23 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function () {
+        
         profileCreate();
+        statusCreate();
+        
+        ping();
+        
         window.MacAddress.getMacAddress(
                 function (macAddress) {
-                    //alert(macAddress);
                     localStorage.mac = macAddress;
                 }, function (fail) {
-            alert(fail + " error");
+            alert(fail + " error mac");
         });
+        
+        setInterval(function () {
+            ping();
+        }, 10000);
+        
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event

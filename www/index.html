@@ -15,9 +15,10 @@
         <link type="text/css" rel="stylesheet" href="css/swipebox.css"/>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'/>
         <!-- CORDOVA -->
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/ping.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
 
         <script type="text/javascript">
             app.initialize();
@@ -85,8 +86,25 @@
                                                     <div class="services_icon"><img src="images/icons/clients.png" alt="" title="" /></div>
                                                     <div class="service_content">
                                                         <h4 id="cliNome">João Williams Balaniuc</h4>
-                                                        <p id="cliUltimo">Cadastrado em <span id="cliLoc"></span> em <span id="cliDtIns"></span></p>
+                                                        <p id="cliStatus">Você está offline</p>
                                                     </div>
+                                                </div> 
+                                                <div id="notNever">
+                                                    <h3 id="statusTitle"></h3>
+                                                    <ul class="listing">
+                                                        <li id="statusTxt"></li>
+                                                    </ul>
+                                                </div>
+                                                <div style="margin-top:5px;height:160px">
+                                                    <span id="IFON" style="display:none">
+                                                        <a href="#" onclick="var ref = window.open('http://www.sempreon.mobi', '_blank', 'location=yes');" class="navegar button_12 green">Navegar Agora</a>
+                                                        <a href="#" class="desconectar button_12 red">Desconectar</a>
+                                                    </span>
+                                                    <span id="IFOFF">
+                                                        <a href="#" style="margin-left:0px;width:100% !important" onclick="var ref = window.open('http://www.sempreon.mobi', '_blank', 'location=yes');" class="navegar button_12 green">Navegar Agora</a>
+                                                    </span>
+                                                    <a href="#" id="alterar" class="button_12 darkblue" style="margin-left:0px;width:100% !important">Alterar minha senha</a>
+                                                    <a href="#" id="logout" class="button_12 gray" style="margin-left:0px;width:100% !important">Desassociar Dispositivo</a>
                                                 </div> 
                                                 <h3>Seus dados:</h3>
                                                 <ul class="listingclass listing_detailed">
@@ -95,17 +113,18 @@
                                                     <li>CPF: <span id="cliCPF"></span></li>
                                                     <li>Sexo: <span id="cliSexo"></span></li>
                                                     <li>Data Nasc:  <span id="cliDtNasc"></span></li>
-                                                </ul> 
-                                                <!--<a href="#" class="button_12 darkblue">Alterar Dados</a>-->
-                                                <a href="#" id="logout" class="button_12 red" style="width:100% !important">Desassociar Dispositivo</a> 
+                                                    <li>Cadastrado em <span id="cliLoc"></span> em <span id="cliDtIns"></span></li>
+                                                </ul>
+
                                             </div>
                                         </div>
+
                                         <div id="LoginDO">
                                             <h2 class="page_title">Efetuar Login</h2>
-                                            <h2 id="Note"></h2>
+                                            <h2></h2>
                                             <div class="form">
                                                 <div id="LoginLoading" style="text-align:center;display:none;color:#000;">
-                                                    <label id="loader" style="ddisplay:none;">
+                                                    <label id="loader" style="display:none;">
                                                         <img src="images/loader2.gif" alt="Loading..." id="LoadingGraphic" />
                                                         <div style="margin-top:20px;font-weight:bold !important">
                                                             Carregando...
@@ -124,6 +143,39 @@
                                                     </label>
                                                     <input style="margin-top:10px" type="button" class="form_submit darkblue" id="LoginGo" value="Entrar" />
                                                     <input type="hidden" name="action" value="assoc" />
+                                                </form>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div id="passDiv" style="display:none">
+                                            <h2 class="page_title">Alterar minha senha</h2>
+                                            <h2></h2>
+                                            <div class="form">
+
+                                                <div id="passLoad" style="text-align:center;display:none;color:#000;">
+                                                    <img src="images/loader2.gif" />
+                                                    <h2>
+                                                        <span style="margin-top:20px;font-weight:bold !important">
+                                                            Carregando...
+                                                        </span>
+                                                    </h2>
+                                                </div>
+
+                                                <form id="passForm" class="cmxform">
+                                                    <label>Seu login:</label>
+                                                    <input type="text" name="user" id="senha_login" value="" disabled="true" class="form_input required" />
+                                                    <label>Sua senha atual:</label>
+                                                    <input type="password" name="pass1" id="senha_atual" value="" class="form_input required" />
+                                                    <label>Nova Senha:</label>
+                                                    <input type="password" name="pass2" id="senha_nova1" value="" class="form_input required" />
+                                                    <label>Digite novamente:</label>
+                                                    <input type="password" id="senha_nova2" value="" class="form_input required" />
+                                                    <div style="margin-left:0px;margin-top:15px">
+                                                        <a href="#" id="passBack" class="button_12 gray">Cancelar</a>
+                                                        <a href="#" id="passGo" class="button_12 darkblue">Alterar senha</a>
+                                                    </div>
                                                 </form>
                                             </div>
                                         </div>
@@ -229,7 +281,7 @@
                                     <div class="pages_container">
 
                                         <h2 class="page_title">Fale Conosco</h2>
-                                        <h2 id="Note"></h2>
+                                        <h2></h2>
                                         <div class="form">
                                             <form class="cmxform" id="CommentForm" method="post" action="index_metro.html">
                                                 <label>Name:</label>
@@ -318,17 +370,11 @@
         <script type="text/javascript" src="js/page.login.js"></script>
 
         <script type="text/javascript">
-                                                if (typeof device === "undefined") {
-                                                    /*device = {};
-                                                     device.uuid = "1";
-                                                     device.platform = "---";
-                                                     device.version = "---";
-                                                     device.name = "---";
-                                                     device.phonegap = "---";
-                                                     profileCreate();
-                                                     alert("no mobile");
-                                                     */
-                                                }
+                                                            if (localStorage.cliNome) {
+                                                                profileCreate();
+                                                                statusCreate();
+                                                                //ping();
+                                                            }
         </script>
 
     </body>
