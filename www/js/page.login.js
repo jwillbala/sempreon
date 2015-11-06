@@ -38,17 +38,26 @@ $('#LoginGo').click(function () {
             if (req.status == 200) {
                 var data = req.responseText;
                 var res = data.split(";");
-                localStorage.cliNome = res[1];
-                localStorage.cliSobrenome = res[2];
-                localStorage.cliEmail = res[3];
-                localStorage.cliCPF = res[4];
-                localStorage.cliDtIns = res[5];
-                localStorage.cliDtNasc = res[6];
-                localStorage.cliSexo = res[7];
-                localStorage.cliCel = res[8];
-                localStorage.cliFb = res[9];
-                localStorage.cliLoc = res[10];
-                profileCreate();
+                
+                if (res[0] == "success") {
+                    localStorage.cliNome = res[1];
+                    localStorage.cliSobrenome = res[2];
+                    localStorage.cliEmail = res[3];
+                    localStorage.cliCPF = res[4];
+                    localStorage.cliDtIns = res[5];
+                    localStorage.cliDtNasc = res[6];
+                    localStorage.cliSexo = res[7];
+                    localStorage.cliCel = res[8];
+                    localStorage.cliFb = res[9];
+                    localStorage.cliLoc = res[10];
+                    profileCreate();
+                }
+                else {
+                    alert("Login ou senha inválidos.");
+                    $('#LoginError').show();
+                    $('#pass').val("");
+                    return;
+                }
             }
         }
     };
