@@ -142,40 +142,55 @@ $('.desconectar').click(function () {
 //============================
 // TELA "ALTERAR SENHA"
 //============================
-$('#alterar').click(function () {
+function passClear() {
     $('#senha_login').val(localStorage.cliEmail);
+    $(this).closest('form').find("input[type=text], input[type=password], textarea").val("");
+}
+$('#alterar').click(function () {
+    passClear();
     $('#LoginOK').hide();
     $('#passDiv').show();
 });
 $('#passBack').click(function () {
-    //$(this).closest('form').find("input[type=text], input[type=password], textarea").val("");
+    passClear();
     $('#passDiv').hide();
     $('#LoginOK').show();
 });
 $('#passGo').click(function () {
 
-    var p0 = $('#senha_atual').val();
-    var p1 = $('#senha_nova1').val();
-    var p2 = $('#senha_nova2').val();
+    var user = encodeURI($('#senha_login').val());
+    var p0 = encodeURI($('#senha_atual').val());
+    var p1 = encodeURI($('#senha_nova1').val());
+    var p2 = encodeURI($('#senha_nova2').val());
 
     if (p0 == "") {
         alert("Digite a sua senha atual");
+        return;
     }
     if (p1 == "" || p2 == "") {
         alert("Digite uma nova senha");
+        return;
     }
     if (p1 != p2) {
         alert("Os campos de nova senha não coincidem");
+        return;
+    }
+    if (p0 == p1) {
+        alert("A nova senha é a mesma senha anterior");
+        return;
     }
     $("#passForm").hide();
     $('#passLoad').show();
 
     var formData = $("#passForm").serialize();
 
+    passClear();
+
     var req = new XMLHttpRequest();
-    req.open("POST", "http://www.sempreon.mobi/hotspot/tunnel/newpass.php?" + formData, true);
+    req.open("POST", "http://www.sempreon.mobi/hotspot/tunnel/newpass.php?user=" + user + "&pass1=" + p0 + "&pass2=" + p1, true);
     req.onreadystatechange = function () {
         $('#passLoad').hide();
+        $("#passForm").show();
         if (req.readyState == 4) {
             if (req.status == 200) {
                 var data = req.responseText;
@@ -187,6 +202,7 @@ $('#passGo').click(function () {
                     $('#senha_nova2').val("");
                 }
                 else {
+                    passClear();
                     $("#passDiv").hide();
                     $("#passForm").show();
                     $('#LoginOK').show();
