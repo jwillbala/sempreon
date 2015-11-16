@@ -13,7 +13,9 @@
         <link type="text/css" rel="stylesheet" href="colors/metro/metro.css"/>
         <link type="text/css" rel="stylesheet" href="css/idangerous.swiper.css"/>
         <link type="text/css" rel="stylesheet" href="css/swipebox.css"/>
+
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'/>
+
         <!-- CORDOVA -->
         <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
@@ -44,15 +46,19 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="slide-inner">
-                                    <div class="logo" style="letter-spacing:-3px;margin-top:16px;"><a href="#"><em>Sempre<strong>ON</strong> App</em></a></div>
+                                    <div class="logo" style="margin-bottom:-30px;margin-top:-30px">
+                                        <center>
+                                            <img src="images/son-big.png" width="90%" style="max-width:400px"/>
+                                        </center>
+                                    </div>
                                     <div class="menu">
                                         <ul>
                                             <li class="green"><a href="#" onclick="swiperParent.swipeTo(1);"><img src="images/icons/about.png" alt="" title="" /><span>Minha Conta</span></a></li>
-                                            <li class="white"><a href="#" onclick="swiperParent.swipeTo(2);"><img id="locImg" src="images/icons/pointer.png" alt="" title="" /><span class="cliLoc">Ver Local</span></a></li>
+                                            <li class="white"><a href="#" onclick="swiperParent.swipeTo(2);"><img id="locImg" src="images/icons/offline.png" alt="" title="" /><span class="cliLoc">Desconectado</span></a></li>
                                             <li class="blue"><a href="#" onclick="swiperParent.swipeTo(3);"><img src="images/icons/blog.png" alt="" title="" /><span>Te Encontrei</span></a></li>
                                             <li class="red"><a href="#" onclick="swiperParent.swipeTo(3);"><img src="images/icons/map.png" alt="" title="" /><span>Zonas Wifi</span></a></li>
                                             <!--<li class="orange"><a href="#" onclick="swiperParent.swipeTo(4);"><img src="images/icons/docs.png" alt="" title="" /><span>Notícias</span></a></li>-->
-                                            <li class="bluegreen"><a href="#" onclick="swiperParent.swipeTo(4);"><img src="images/icons/code.png" alt="" title="" /><span>Sobre</span></a></li>
+                                            <li class="bluegreen"><a href="#" onclick="swiperParent.swipeTo(4);"><img src="images/icons/about2.png" alt="" title="" /><span>Sobre</span></a></li>
                                             <!--
                                             <li class="orange"><a href="#" onclick="swiperParent.swipeTo(4);"><img src="images/icons/docs.png" alt="" title="" /><span>Portfolio</span></a></li>
                                             <li class="purple"><a href="#" onclick="swiperParent.swipeTo(5);"><img src="images/icons/photos.png" alt="" title="" /><span>Gallery</span></a></li>
@@ -76,7 +82,7 @@
                             <div class="swiper-slide">
                                 <div class="slide-inner">
 
-                                    <div class="pages_container">
+                                    <div class="pages_container" style="height:850px !important">
 
                                         <div id="LoginOK" style="display:none">
                                             <h2 class="page_title">Minha Conta</h2>
@@ -278,53 +284,62 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="slide-inner">
-                                    <div class="pages_container">
+                                    <div class="pages_container" style="height:1200px !important">
+                                        <div id="desconectado">
+                                            <h2>
+                                                Desconectado
+                                            </h2>
+                                            <h4>
+                                                Conecte-se a um de nossos sinais wifi SempreON.
+                                            </h4>
+                                        </div>
+                                        <div id="conectado" style="display:none">
+                                            <div id="conteudo" style="margin-bottom:60px">
+                                                <h2 id="locTitle" class="page_title"></h2>
+                                                <h2></h2>
+                                                <div id="locTxt" style="font-size:20px;line-height:26px">
+                                                </div>
 
-                                        <div id="conteudo" style="margin-bottom:60px">
-                                            <h2 id="locTitle" class="page_title"></h2>
-                                            <h2></h2>
-                                            <div id="locTxt" style="font-size:20px;line-height:26px">
                                             </div>
 
-                                        </div>
-
-                                        <div id="faleconosco">
-                                            <h2 class="page_title">Fale Conosco</h2>
-                                            <div class="form">
-                                                <form class="cmxform">
-                                                    <label>Remetente:</label>
-                                                    <input type="text" id="cliContato" disabled="true" value="" class="cliNome form_input required" />
-                                                    <label>Sua mensagem:</label>
-                                                    <textarea style="font-size:18px" id="mensagem" class="form_textarea textarea required" rows="" cols=""></textarea>
-                                                    <input type="button" class="form_submit blue" id="goMail" value="Enviar para Allwere" />
-                                                    <input class="" type="hidden" id="locEmail" name="to"  value="youremaill@yourwebsiteee.com" />
-                                                    <input class="" type="hidden" id="locSubject" name="subject" value="Contacf form message" />
-                                                </form>
+                                            <div id="faleconosco">
+                                                <h2 class="page_title">Fale Conosco</h2>
+                                                <div class="form">
+                                                    <form class="cmxform">
+                                                        <label>Remetente:</label>
+                                                        <input type="text" id="cliContato" disabled="true" value="" class="cliNome form_input required" />
+                                                        <label>Sua mensagem:</label>
+                                                        <textarea style="font-size:18px" id="mensagem" class="form_textarea textarea required" rows="" cols=""></textarea>
+                                                        <input type="button" class="form_submit blue" id="goMail" value="Enviar" />
+                                                        <input class="" type="hidden" id="locEmail" name="to"  value="youremaill@yourwebsiteee.com" />
+                                                        <input class="" type="hidden" id="locSubject" name="subject" value="Contacf form message" />
+                                                    </form>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div id="siganos">
-                                            <h2>Siga-nos</h2>     
-                                            <ul class="social">
-                                                <li id="locFace" class="social_facebook"><a href="#"><img src="images/icons/social/facebook.png" alt="" title="" border="0" /></a></li>
-                                                <li id="locTwitter" class="social_twitter"><a href="#"><img src="images/icons/social/twitter.png" alt="" title="" border="0" /></a></li>
-                                                <li id="locGoogle" class="social_google"><a href="#"><img src="images/icons/social/google.png" alt="" title="" border="0" /></a></li>
-                                                <!--<li class="social_pinterest"><a href="#"><img src="images/icons/social/pinterest.png" alt="" title="" border="0" /></a></li>
-                                                <li class="social_flickr"><a href="#"><img src="images/icons/social/flickr.png" alt="" title="" border="0" /></a></li>
-                                                <li class="social_digg"><a href="#"><img src="images/icons/social/digg.png" alt="" title="" border="0" /></a></li>
-                                                -->
-                                            </ul>
-                                        </div>
+                                            <div id="siganos">
+                                                <h2>Siga-nos</h2>     
+                                                <ul class="social">
+                                                    <li id="locFace" class="social_facebook"><a href="#"><img src="images/icons/social/facebook.png" alt="" title="" border="0" /></a></li>
+                                                    <li id="locTwitter" class="social_twitter"><a href="#"><img src="images/icons/social/twitter.png" alt="" title="" border="0" /></a></li>
+                                                    <li id="locGoogle" class="social_google"><a href="#"><img src="images/icons/social/google.png" alt="" title="" border="0" /></a></li>
+                                                    <!--<li class="social_pinterest"><a href="#"><img src="images/icons/social/pinterest.png" alt="" title="" border="0" /></a></li>
+                                                    <li class="social_flickr"><a href="#"><img src="images/icons/social/flickr.png" alt="" title="" border="0" /></a></li>
+                                                    <li class="social_digg"><a href="#"><img src="images/icons/social/digg.png" alt="" title="" border="0" /></a></li>
+                                                    -->
+                                                </ul>
+                                            </div>
 
-                                        <div id="liguenos">
-                                            <h2>Ligue para nós</h2>    
-                                            <a id="locPhone" href="#" class="call_button">Chamar agora!</a>
-                                        </div>
+                                            <div id="liguenos">
+                                                <h2>Ligue para nós</h2>    
+                                                <a id="locPhone" href="#" class="call_button">Chamar agora!</a>
+                                            </div>
 
-                                        <!--<a href="http://maps.google.com/maps?q=houston+usa&amp;hl=ro&amp;sll=37.0625,-95.677068&amp;sspn=53.961216,114.169922&amp;hnear=Houston,+Harris,+Texas&amp;t=m&amp;z=5" class="map_button">View our location</a>  
-                                        -->
-                                        <div class="clearfix"></div>
-                                        <div class="scrolltop radius20"><a href="#"><img src="images/icons/top.png" alt="Go on top" title="Go on top" /></a></div>    
+                                            <!--<a href="http://maps.google.com/maps?q=houston+usa&amp;hl=ro&amp;sll=37.0625,-95.677068&amp;sspn=53.961216,114.169922&amp;hnear=Houston,+Harris,+Texas&amp;t=m&amp;z=5" class="map_button">View our location</a>  
+                                            -->
+                                            <div class="clearfix"></div>
+                                            <div class="scrolltop radius20"><a href="#"><img src="images/icons/top.png" alt="Go on top" title="Go on top" /></a></div>    
+                                        </div>
                                     </div>
                                     <!--End of page container-->
                                 </div>
@@ -334,7 +349,7 @@
                     </div>
                 </div>
 
-
+h
 
                 <!--Page 3 content-->
                 <div class="swiper-slide sliderbg bluegreen">

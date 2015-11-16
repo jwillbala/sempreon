@@ -1,14 +1,6 @@
 //=============================
 // PING RADIUS
 //=============================
-function navegar() {
-    if (localStorage.locSite != "") {
-        var ref = window.open(localStorage.locSite, '_blank', 'location=yes');
-    }
-    else {
-        var ref = window.open("http://www.nickford.com.br", '_blank', 'location=yes');
-    }
-}
 function ping() {
     sessionStorage.status = 0; // offline
     if (!localStorage.cliNome) {
@@ -131,13 +123,24 @@ function locCreate() {
             $('#locTxt').html(localStorage.locTxt);
         else
             $('#locTxt').html("O sinal de wifi grátis que você utilizou é uma cortesia de <strong>" + localStorage.cliLoc + "</strong>. Este serviço não é um direito, e sim um privilégio! Use com responsabilidade, e aproveite!");
-
-        if (!localStorage.locImg || sessionStorage.status == 0) {
-            $('#locImg').attr("src", "images/icons/pointer.png");
+        //==============================
+        // IMAGEM DO LOCAL
+        //==============================
+        if (!localStorage.cliNome) {
+            $('.cliLoc').html("Desconectado");
+            $('#locImg').attr("src", "images/icons/off.png");
+            
         }
         else {
-
-            $('#locImg').attr("src", "http://sempreon.mobi/hotspot/upload/" + localStorage.locImg);
+            $('#conectado').show();
+            $('#desconectado').hide();
+            
+            if (!localStorage.locImg || sessionStorage.status == 0) {
+                $('#locImg').attr("src", "images/icons/pointer.png");
+            }
+            else {
+                $('#locImg').attr("src", "http://sempreon.mobi/hotspot/upload/" + localStorage.locImg);
+            }
         }
         if (localStorage.locEmail != "") {
             $('#faleconosco').show();

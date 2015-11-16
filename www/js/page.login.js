@@ -14,19 +14,30 @@ $('#logout').click(function () {
                     var data = req.responseText;
                     localStorage.removeItem("cliNome");
                     profileCreate();
+                    statusCreate();
+                    locCreate();
                 }
             }
         };
         req.send(null);
     }
 });
+// NAVEGAR
+function navegar() {
+    if (localStorage.locSite != "") {
+        var ref = window.open(localStorage.locSite, '_blank', 'location=yes');
+    }
+    else {
+        var ref = window.open("http://www.nickford.com.br", '_blank', 'location=yes');
+    }
+}
 //============================
 // FAZER LOGIN
 //============================
 $('#LoginGo').click(function () {
     $('#LoginForm').hide();
     $('#LoginLoading').show();
-
+    return;
     var formData = $("#LoginForm").serialize();
     var mac = encodeURI(localStorage.mac);
 
@@ -38,7 +49,7 @@ $('#LoginGo').click(function () {
             if (req.status == 200) {
                 var data = req.responseText;
                 var res = data.split(";");
-                
+
                 if (res[0] == "success") {
                     localStorage.cliNome = res[1];
                     localStorage.cliSobrenome = res[2];
@@ -51,6 +62,9 @@ $('#LoginGo').click(function () {
                     localStorage.cliFb = res[9];
                     localStorage.cliLoc = res[10];
                     profileCreate();
+                    statusCreate();
+                    locCreate();
+                    ping();
                 }
                 else {
                     alert("Login ou senha inválidos.");

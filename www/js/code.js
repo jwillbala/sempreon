@@ -2,8 +2,8 @@ var $ = jQuery.noConflict();
 $(function () {
     $('.form').find('input, select, textarea').on('touchstart mousedown click', function (e) {
         e.stopPropagation();
-    })
-})
+    });
+});
 var swiperParent = new Swiper('.swiper-parent', {
     pagination: '.pagination',
     paginationClickable: true,
