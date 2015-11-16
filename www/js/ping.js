@@ -1,6 +1,14 @@
 //=============================
 // PING RADIUS
 //=============================
+function navegar() {
+    if (localStorage.locSite != "") {
+        var ref = window.open(localStorage.locSite, '_blank', 'location=yes');
+    }
+    else {
+        var ref = window.open("http://www.nickford.com.br", '_blank', 'location=yes');
+    }
+}
 function ping() {
     sessionStorage.status = 0; // offline
     if (!localStorage.cliNome) {
@@ -32,6 +40,7 @@ function ping() {
                 localStorage.locFace = res[13];
                 localStorage.locGoogle = res[14];
                 localStorage.locTwitter = res[15];
+                localStorage.locSite = res[16];
                 locCreate();
                 console.log(localStorage);
             }
