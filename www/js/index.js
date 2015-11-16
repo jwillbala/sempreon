@@ -36,6 +36,7 @@ var app = {
         
         profileCreate();
         statusCreate();
+        locCreate();
         
         ping();
         

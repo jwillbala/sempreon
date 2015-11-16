@@ -2,6 +2,9 @@
 /* CSS Reset 
 /*-----------------------------------------------------------------------------------*/
 
+.beauty {
+    text-align:justify;line-height:32px;text-indent:50px;letter-spacing:0px
+}
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }

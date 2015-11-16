@@ -48,11 +48,11 @@
                                     <div class="menu">
                                         <ul>
                                             <li class="green"><a href="#" onclick="swiperParent.swipeTo(1);"><img src="images/icons/about.png" alt="" title="" /><span>Minha Conta</span></a></li>
-                                            <li class="white"><a href="#" onclick="swiperParent.swipeTo(2);"><img src="images/marata-color2.png" alt="" title="" /><span>Ver Local</span></a></li>
+                                            <li class="white"><a href="#" onclick="swiperParent.swipeTo(2);"><img id="locImg" src="images/icons/pointer.png" alt="" title="" /><span class="cliLoc">Ver Local</span></a></li>
                                             <li class="blue"><a href="#" onclick="swiperParent.swipeTo(3);"><img src="images/icons/blog.png" alt="" title="" /><span>Te Encontrei</span></a></li>
                                             <li class="red"><a href="#" onclick="swiperParent.swipeTo(3);"><img src="images/icons/map.png" alt="" title="" /><span>Zonas Wifi</span></a></li>
                                             <!--<li class="orange"><a href="#" onclick="swiperParent.swipeTo(4);"><img src="images/icons/docs.png" alt="" title="" /><span>Notícias</span></a></li>-->
-                                            <li class="bluegreen"><a href="#" onclick="swiperParent.swipeTo(3);"><img src="images/icons/code.png" alt="" title="" /><span>Sobre</span></a></li>
+                                            <li class="bluegreen"><a href="#" onclick="swiperParent.swipeTo(4);"><img src="images/icons/code.png" alt="" title="" /><span>Sobre</span></a></li>
                                             <!--
                                             <li class="orange"><a href="#" onclick="swiperParent.swipeTo(4);"><img src="images/icons/docs.png" alt="" title="" /><span>Portfolio</span></a></li>
                                             <li class="purple"><a href="#" onclick="swiperParent.swipeTo(5);"><img src="images/icons/photos.png" alt="" title="" /><span>Gallery</span></a></li>
@@ -98,7 +98,7 @@
                                                 <div style="margin-top:5px;height:160px">
                                                     <span id="IFON" style="display:none">
                                                         <a href="#" onclick="var ref = window.open('http://www.sempreon.mobi', '_blank', 'location=yes');" class="navegar button_12 green">Navegar Agora</a>
-                                                        <a href="#" class="desconectar button_12 red">Desconectar</a>
+                                                        <a href="#" onclick="var ref = window.open('http://www.sempreon.es/logout', '_blank', 'location=yes');" class="ddesconectar button_12 red">Desconectar</a>
                                                     </span>
                                                     <span id="IFOFF">
                                                         <a href="#" style="margin-left:0px;width:100% !important" onclick="var ref = window.open('http://www.sempreon.mobi', '_blank', 'location=yes');" class="navegar button_12 green">Navegar Agora</a>
@@ -280,37 +280,49 @@
                                 <div class="slide-inner">
                                     <div class="pages_container">
 
-                                        <h2 class="page_title">Fale Conosco</h2>
-                                        <h2></h2>
-                                        <div class="form">
-                                            <form class="cmxform" id="CommentForm" method="post" action="index_metro.html">
-                                                <label>Name:</label>
-                                                <input type="text" name="ContactName" id="ContactName" value="" class="form_input required" />
-                                                <label>Email:</label>
-                                                <input type="text" name="ContactEmail" id="ContactEmail" value="" class="form_input required email" />
-                                                <label>Message:</label>
-                                                <textarea name="ContactComment" id="ContactComment" class="form_textarea textarea required" rows="" cols=""></textarea>
-                                                <input type="submit" name="submit" class="form_submit blue" id="submit" value="Enviar" />
-                                                <input class="" type="hidden" name="to"  value="youremaill@yourwebsiteee.com" />
-                                                <input class="" type="hidden" name="subject" value="Contacf form message" />
-                                                <label id="loader" style="display:none;"><img src="images/loader.gif" alt="Loading..." id="LoadingGraphic" /></label>
-                                            </form>
+                                        <div id="conteudo" style="margin-bottom:60px">
+                                            <h2 id="locTitle" class="page_title"></h2>
+                                            <h2></h2>
+                                            <div id="locTxt" style="font-size:20px;line-height:26px">
+                                            </div>
+
                                         </div>
 
+                                        <div id="faleconosco">
+                                            <h2 class="page_title">Fale Conosco</h2>
+                                            <div class="form">
+                                                <form class="cmxform">
+                                                    <label>Remetente:</label>
+                                                    <input type="text" id="cliContato" disabled="true" value="" class="cliNome form_input required" />
+                                                    <label>Sua mensagem:</label>
+                                                    <textarea style="font-size:18px" id="mensagem" class="form_textarea textarea required" rows="" cols=""></textarea>
+                                                    <input type="button" class="form_submit blue" id="goMail" value="Enviar para Allwere" />
+                                                    <input class="" type="hidden" id="locEmail" name="to"  value="youremaill@yourwebsiteee.com" />
+                                                    <input class="" type="hidden" id="locSubject" name="subject" value="Contacf form message" />
+                                                </form>
+                                            </div>
+                                        </div>
 
-                                        <h2>Siga-nos</h2>     
-                                        <ul class="social">
-                                            <li class="social_facebook"><a href="#"><img src="images/icons/social/facebook.png" alt="" title="" border="0" /></a></li>
-                                            <li class="social_twitter"><a href="#"><img src="images/icons/social/twitter.png" alt="" title="" border="0" /></a></li>
-                                            <li class="social_google"><a href="#"><img src="images/icons/social/google.png" alt="" title="" border="0" /></a></li>
-                                            <li class="social_pinterest"><a href="#"><img src="images/icons/social/pinterest.png" alt="" title="" border="0" /></a></li>
-                                            <li class="social_flickr"><a href="#"><img src="images/icons/social/flickr.png" alt="" title="" border="0" /></a></li>
-                                            <li class="social_digg"><a href="#"><img src="images/icons/social/digg.png" alt="" title="" border="0" /></a></li>
-                                        </ul>
-                                        <h2>Give Us a call</h2>    
-                                        <a href="tel:123 456 789" class="call_button">Click To Call Now!</a>
-                                        <a href="http://maps.google.com/maps?q=houston+usa&amp;hl=ro&amp;sll=37.0625,-95.677068&amp;sspn=53.961216,114.169922&amp;hnear=Houston,+Harris,+Texas&amp;t=m&amp;z=5" class="map_button">View our location</a>  
+                                        <div id="siganos">
+                                            <h2>Siga-nos</h2>     
+                                            <ul class="social">
+                                                <li id="locFace" class="social_facebook"><a href="#"><img src="images/icons/social/facebook.png" alt="" title="" border="0" /></a></li>
+                                                <li id="locTwitter" class="social_twitter"><a href="#"><img src="images/icons/social/twitter.png" alt="" title="" border="0" /></a></li>
+                                                <li id="locGoogle" class="social_google"><a href="#"><img src="images/icons/social/google.png" alt="" title="" border="0" /></a></li>
+                                                <!--<li class="social_pinterest"><a href="#"><img src="images/icons/social/pinterest.png" alt="" title="" border="0" /></a></li>
+                                                <li class="social_flickr"><a href="#"><img src="images/icons/social/flickr.png" alt="" title="" border="0" /></a></li>
+                                                <li class="social_digg"><a href="#"><img src="images/icons/social/digg.png" alt="" title="" border="0" /></a></li>
+                                                -->
+                                            </ul>
+                                        </div>
 
+                                        <div id="liguenos">
+                                            <h2>Ligue para nós</h2>    
+                                            <a id="locPhone" href="#" class="call_button">Chamar agora!</a>
+                                        </div>
+
+                                        <!--<a href="http://maps.google.com/maps?q=houston+usa&amp;hl=ro&amp;sll=37.0625,-95.677068&amp;sspn=53.961216,114.169922&amp;hnear=Houston,+Harris,+Texas&amp;t=m&amp;z=5" class="map_button">View our location</a>  
+                                        -->
                                         <div class="clearfix"></div>
                                         <div class="scrolltop radius20"><a href="#"><img src="images/icons/top.png" alt="Go on top" title="Go on top" /></a></div>    
                                     </div>
@@ -354,6 +366,47 @@
                     </div>
                 </div>
 
+
+
+
+                <!--Page 4 content-->
+                <div class="swiper-slide sliderbg black">
+                    <div class="swiper-container swiper-nested">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="slide-inner">
+                                    <div class="pages_container">
+
+                                        <h2 class="page_title">Isto é SempreON!</h2>
+                                        <center>
+                                            <img src="images/son.png" style="max-width:90%" /><br/>
+                                        </center>
+                                        <h4 class="beauty">
+                                            <p>
+                                                <strong>SempreON</strong> é um serviço inovador, pioneiro no Brasil, que transforma o fornecimento gratuito de internet em um sistema robusto e unificado de interação social e obtenção de cadastros de usuários.
+                                            </p>
+                                            <p>
+                                                "Existimos para conectar pessoas. A Internet nunca mais será privilégio de alguns, mas a partir de agora, um direito de todos." - Esta é a nossa missão.<br/>
+                                            </p>
+                                            <p>
+                                                Estamos em fase de desenvolvimento. Seja paciente! E nunca se esqueça, SempreON é <strong>GRÁTIS</strong> e sempre será!
+                                            </p>
+                                            <p>
+                                                Saiba mais em: <a style="color:#ffdfa1" href="#" onclick="var ref = window.open('http://www.sempreon.mobi', '_blank', 'location=yes');">www.sempreon.mobi</a>
+                                            </p>
+                                        </h4>
+
+                                        <div class="clearfix"></div>
+                                        <div class="scrolltop radius20"><a href="#"><img src="images/icons/top.png" alt="Go on top" title="Go on top" /></a></div>    
+                                    </div>
+                                    <!--End of page container-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-scrollbar"></div>
+                    </div>
+                </div>
+
                 <!--End of pages--> 
 
             </div>
@@ -370,11 +423,12 @@
         <script type="text/javascript" src="js/page.login.js"></script>
 
         <script type="text/javascript">
-                                                            if (localStorage.cliNome) {
-                                                                profileCreate();
-                                                                statusCreate();
-                                                                //ping();
-                                                            }
+                                                    if (localStorage.cliNome) {
+                                                        profileCreate();
+                                                        statusCreate();
+                                                        locCreate();
+                                                        ping();
+                                                    }
         </script>
 
     </body>
