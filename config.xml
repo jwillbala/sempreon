@@ -46,6 +46,12 @@
     <gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
     <gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />
     <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
+    
+    <gap:plugin name="plugin.google.maps.menusito" version="1.2.5" />
+    <vs:plugin name="plugin.google.maps">
+        <param name="API_KEY_FOR_ANDROID" value="AIzaSyAGJX2ms7KBkNE9V9FC_SEXT91lSVek-Uk" />
+    </vs:plugin>
+
     <!--
     <gap:plugin name="com.indigoway.cordova.whitelist.whitelistplugin" version="1.1.1" />
     <gap:plugin name="org.apache.cordova.file-transfer" version="0.4.6" />

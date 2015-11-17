@@ -34,6 +34,10 @@ function ping() {
                 localStorage.locTwitter = res[15];
                 localStorage.locSite = res[16];
                 locCreate();
+
+                localStorage.cliFb = res[17];
+                fbCreate();
+
                 console.log(localStorage);
             }
         }
@@ -78,6 +82,7 @@ function statusCreate() {
         }
     }
 }
+
 //=============================
 // POPULAR PERFIL DO USUARIO
 //=============================
@@ -129,12 +134,12 @@ function locCreate() {
         if (!localStorage.cliNome) {
             $('.cliLoc').html("Desconectado");
             $('#locImg').attr("src", "images/icons/off.png");
-            
+
         }
         else {
             $('#conectado').show();
             $('#desconectado').hide();
-            
+
             if (!localStorage.locImg || sessionStorage.status == 0) {
                 $('#locImg').attr("src", "images/icons/pointer.png");
             }
@@ -176,5 +181,14 @@ function locCreate() {
             $('#liguenos').show();
         else
             $('#liguenos').hide();
+    }
+}
+
+function fbCreate() {
+    if (localStorage.cliFb) {
+        $("#cliFb").css("background", "url(http://graph.facebook.com/" + localStorage.cliFb + "/picture?type=large)");
+        $("#cliFb").css("background-size", "contain");
+        $("#cliFb").css("background-position", "center");
+        $(".cliFb").css("visibility", "hidden");
     }
 }

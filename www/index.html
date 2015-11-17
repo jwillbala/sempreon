@@ -9,12 +9,14 @@
         <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
         <link rel="apple-touch-startup-image" href="images/apple-touch-startup-image-320x460.png" />
         <title>SEMPREON APP BETA</title>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'/>
         <link type="text/css" rel="stylesheet" href="css/style.css"/>
         <link type="text/css" rel="stylesheet" href="colors/metro/metro.css"/>
         <link type="text/css" rel="stylesheet" href="css/idangerous.swiper.css"/>
         <link type="text/css" rel="stylesheet" href="css/swipebox.css"/>
 
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
 
         <!-- CORDOVA -->
         <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
@@ -24,7 +26,28 @@
 
         <script type="text/javascript">
             app.initialize();
+        </script>
 
+        <script type="text/javascript">
+            var map;
+            document.addEventListener("deviceready", function () {
+                var div = document.getElementById("map_canvas");
+
+                // Initialize the map view
+                map = plugin.google.maps.Map.getMap(div);
+
+                // Wait until the map is ready status.
+                map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
+            }, false);
+
+            function onMapReady() {
+                var button = document.getElementById("button");
+                button.addEventListener("click", onBtnClicked, false);
+            }
+
+            function onBtnClicked() {
+                map.showDialog();
+            }
         </script>
 
         <style type="text/css">
@@ -51,10 +74,15 @@
                                             <img src="images/son-big.png" width="90%" style="max-width:400px"/>
                                         </center>
                                     </div>
+
+                                    <div style="width:100%;height:400px" id="map_canvas"></div>
+                                    <button id="button">Full Screen</button>
+
+
                                     <div class="menu">
                                         <ul>
-                                            <li class="green"><a href="#" onclick="swiperParent.swipeTo(1);"><img src="images/icons/about.png" alt="" title="" /><span>Minha Conta</span></a></li>
-                                            <li class="white"><a href="#" onclick="swiperParent.swipeTo(2);"><img id="locImg" src="images/icons/offline.png" alt="" title="" /><span class="cliLoc">Desconectado</span></a></li>
+                                            <li id="cliFb" class="green" onclick="swiperParent.swipeTo(1);"><a href="#"><img class="cliFb" src="images/icons/about.png" alt="" title="" /><span>Minha Conta</span></a></li>
+                                            <li class="white"><a href="#" onclick="swiperParent.swipeTo(2);"><img id="locImg" src="images/icons/offline.png" alt="" title="" /><span class="cliLoc truncate">Desconectado</span></a></li>
                                             <li class="blue"><a href="#" onclick="swiperParent.swipeTo(3);"><img src="images/icons/blog.png" alt="" title="" /><span>Te Encontrei</span></a></li>
                                             <li class="red"><a href="#" onclick="swiperParent.swipeTo(3);"><img src="images/icons/map.png" alt="" title="" /><span>Zonas Wifi</span></a></li>
                                             <!--<li class="orange"><a href="#" onclick="swiperParent.swipeTo(4);"><img src="images/icons/docs.png" alt="" title="" /><span>Notícias</span></a></li>-->
@@ -107,7 +135,7 @@
                                                         <a href="#" onclick="var ref = window.open('http://www.sempreon.es/logout', '_blank', 'location=yes');" class="ddesconectar button_12 red">Desconectar</a>
                                                     </span>
                                                     <span id="IFOFF">
-                                                        <a href="#" style="margin-left:0px;width:100% !important" onclick="var ref = window.open('http://www.sempreon.mobi', '_blank', 'location=yes');" class="navegar button_12 green">Navegar Agora</a>
+                                                        <a href="#" style="margin-left:0px;width:100% !important" onclick="navegar();" class="navegar button_12 green">Navegar Agora</a>
                                                     </span>
                                                     <a href="#" id="alterar" class="button_12 darkblue" style="margin-left:0px;width:100% !important">Alterar minha senha</a>
                                                     <a href="#" id="logout" class="button_12 gray" style="margin-left:0px;width:100% !important">Desassociar Dispositivo</a>
@@ -130,7 +158,7 @@
                                             <h2></h2>
                                             <div class="form">
                                                 <div id="LoginLoading" style="text-align:center;display:none;color:#000;">
-                                                    <label id="loader" style="display:none;">
+                                                    <label id="loader">
                                                         <img src="images/loader2.gif" alt="Loading..." id="LoadingGraphic" />
                                                         <div style="margin-top:20px;font-weight:bold !important">
                                                             Carregando...
@@ -349,7 +377,7 @@
                     </div>
                 </div>
 
-h
+                h
 
                 <!--Page 3 content-->
                 <div class="swiper-slide sliderbg bluegreen">
@@ -442,6 +470,7 @@ h
                                                         profileCreate();
                                                         statusCreate();
                                                         locCreate();
+                                                        fbCreate();
                                                         ping();
                                                     }
         </script>
