@@ -37,7 +37,7 @@ function navegar() {
 $('#LoginGo').click(function () {
     $('#LoginForm').hide();
     $('#LoginLoading').show();
-    return;
+
     var formData = $("#LoginForm").serialize();
     var mac = encodeURI(localStorage.mac);
 
