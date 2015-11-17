@@ -127,7 +127,7 @@ function locCreate() {
         if (localStorage.locTxt != "")
             $('#locTxt').html(localStorage.locTxt);
         else
-            $('#locTxt').html("O sinal de wifi grátis que você utilizou é uma cortesia de <strong>" + localStorage.cliLoc + "</strong>.<br/><br/>Este serviço não é um direito, e sim um privilégio! Use com responsabilidade, e aproveite!");
+            $('#locTxt').html("O sinal de wifi grátis que você utilizou é uma cortesia de <strong>" + localStorage.statusLoc + "</strong>.<br/><br/>Use este serviço não como um direito, e sim como um privilégio. Aproveite!");
         //==============================
         // IMAGEM DO LOCAL
         //==============================
