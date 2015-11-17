@@ -23,29 +23,6 @@
         <script type="text/javascript">
             app.initialize();
         </script>
-
-        <script type="text/javascript">
-            var map;
-            document.addEventListener("deviceready", function () {
-                var div = document.getElementById("map_canvas");
-
-                // Initialize the map view
-                map = plugin.google.maps.Map.getMap(div);
-
-                // Wait until the map is ready status.
-                map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
-            }, false);
-
-            function onMapReady() {
-                var button = document.getElementById("button");
-                button.addEventListener("click", onBtnClicked, false);
-            }
-
-            function onBtnClicked() {
-                map.showDialog();
-            }
-        </script>
-
         <style type="text/css">
             input[type=text],[type=password] {font-size:18px !important;}
             label {margin-top:10px}
@@ -70,9 +47,6 @@
                                             <img src="images/son-big.png" width="90%" style="max-width:400px"/>
                                         </center>
                                     </div>
-
-                                    <div style="width:100%;height:400px" id="map_canvas"></div>
-                                    <button id="button">Full Screen</button>
 
 
                                     <div class="menu">
