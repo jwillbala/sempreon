@@ -34,13 +34,9 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function () {
 
-        var map = new GoogleMap();
-        map.initialize();
-
         profileCreate();
         statusCreate();
         locCreate();
-
         ping();
 
         window.MacAddress.getMacAddress(
