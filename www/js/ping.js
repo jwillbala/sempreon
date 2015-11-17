@@ -127,7 +127,7 @@ function locCreate() {
         if (localStorage.locTxt != "")
             $('#locTxt').html(localStorage.locTxt);
         else
-            $('#locTxt').html("O sinal de wifi grátis que você utilizou é uma cortesia de <strong>" + localStorage.cliLoc + "</strong>. Este serviço não é um direito, e sim um privilégio! Use com responsabilidade, e aproveite!");
+            $('#locTxt').html("O sinal de wifi grátis que você utilizou é uma cortesia de <strong>" + localStorage.cliLoc + "</strong>.<br/><br/>Este serviço não é um direito, e sim um privilégio! Use com responsabilidade, e aproveite!");
         //==============================
         // IMAGEM DO LOCAL
         //==============================
@@ -185,7 +185,7 @@ function locCreate() {
 }
 
 function fbCreate() {
-    if (localStorage.cliFb) {
+    if (localStorage.cliFb && localStorage.status) {
         $("#cliFb").css("background", "url(http://graph.facebook.com/" + localStorage.cliFb + "/picture?type=large)");
         $("#cliFb").css("background-size", "contain");
         $("#cliFb").css("background-position", "center");
