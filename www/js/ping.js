@@ -66,7 +66,8 @@ function statusCreate() {
             $('#cliStatus').html("<strong class='green'>Online</strong> em SempreOn");
             $('#statusTitle').html("Você está em");
 
-            if (localStorage.statusMac != localStorage.mac) {
+            var mac = localStorage.mac;
+            if (localStorage.statusMac != mac.toLowerCase()) {
                 $('#statusTxt').html("<strong>" + localStorage.statusLoc + "</strong> com outro dispositivo: " + localStorage.statusBrowser + " em " + localStorage.statusSo);
             }
             else {
