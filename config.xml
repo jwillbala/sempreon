@@ -1,7 +1,7 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="br.com.nickford.sempreon" version="1.0.0">
     <name>SempreOn</name>
-    <description>App para o usuário dos sinais wifi SempreOn</description>
-    <author href="http://www.sempreon.mobi" email="suporte@sempreon.mobi">SempreOn Team</author>
+    <description>App para usuários do hotspot SempreOn</description>
+    <author href="http://www.sempreon.mobi" email="suporte@sempreon.mobi">SempreOn Brasil</author>
     <content src="index.html"/>
     
     <preference name="phonegap-version" value="3.5.0" /> 
